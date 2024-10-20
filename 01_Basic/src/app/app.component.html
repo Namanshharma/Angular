@@ -2,12 +2,14 @@
 
 <main>
         <ul id="users">
-                <li><app-user [index]="1" (select)="onSelectionOfUser($event)" [user]="Users[0]"></app-user></li>
-                <li><app-user [index]="5" (select)="onSelectionOfUser($event)" [user]="Users[1]"></app-user></li>
-                <li><app-user [index]="2" (select)="onSelectionOfUser($event)" [user]="Users[2]"></app-user></li>
-                <li><app-user [index]="3" (select)="onSelectionOfUser($event)" [user]="Users[3]"></app-user></li>
-                <li><app-user [index]="4" (select)="onSelectionOfUser($event)" [user]="Users[4]"></app-user></li>
-                <li><app-user [index]="5" (select)="onSelectionOfUser($event)" [user]="Users[5]"></app-user></li>
+                @for (item of Users; let i=$index; track item.id) {
+                <li><app-user [index]="i+1" (select)="onSelectionOfUser($event)" [user]="item">
+                        </app-user></li>
+                }
         </ul>
+        @if (selectedUser) {
         <app-tasks [detailsOfSelectedUser]="selectedUser"></app-tasks>
+        }@else {
+        <h1>Please select any user</h1>
+        }
 </main>

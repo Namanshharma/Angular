@@ -1,2 +1,15 @@
-<h1>{{detailsOfSelectedUser.name}}</h1>
-<h1>{{detailsOfSelectedUser.id}}</h1>
+<section id="tasks">
+    <header>
+        <h2>{{detailsOfSelectedUser.name}}'s Tasks</h2>
+        <menu>
+            <button>Add Task</button>
+        </menu>
+    </header>
+    <ul>
+        @for (item of dummyTasks; track item.userId; let i = $index) {
+        @if (detailsOfSelectedUser.id === item.userId && item.active === '1') {
+        <li><app-task [task]="item" (seletedTask)="onSelectionOfTask($event)"></app-task></li>
+        }
+        }
+    </ul>
+</section>

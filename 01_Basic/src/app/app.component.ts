@@ -15,7 +15,7 @@ import { TasksComponent } from "./tasks/tasks.component";
 
 export class AppComponent {
   Users: userType[] = DUMMY_USERS;
-  selectedUser!: obj
+  selectedUser!: obj;
 
   onSelectionOfUser(event: obj): void {
     this.selectedUser = event;

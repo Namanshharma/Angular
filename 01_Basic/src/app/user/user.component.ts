@@ -13,18 +13,12 @@ const index = Math.floor(Math.random() * DUMMY_USERS.length);
 })
 
 export class UserComponent {
-  // index: number = index <= 0 ? 1 : index;
-  // selectedUser: userType = DUMMY_USERS[index];
-
   @Input({ required: true }) index!: number;
   @Input({ required: true }) user !: obj;
+  // @Input({ required: true }) selected?: boolean = false;
   @Output() select: EventEmitter<obj> = new EventEmitter<obj>();
 
   onSelectUser(): void {
-    // const index = Math.floor(Math.random() * DUMMY_USERS.length);
-    // this.index = index;
-    // this.selectedUser = DUMMY_USERS[index];
-
     this.select.emit({ name: this.user.name, id: this.user.id });
   }
 }
