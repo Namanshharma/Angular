@@ -12,7 +12,7 @@ export class TaskComponent {
   @Input({ required: true }) task!: dummayTask
   @Output() seletedTask: EventEmitter<dummayTask> = new EventEmitter<dummayTask>();
 
-  onClickComplete() : void {
+  onClickComplete(): void {
     this.seletedTask.emit(this.task);
   }
 }

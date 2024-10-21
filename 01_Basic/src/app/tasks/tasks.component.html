@@ -1,8 +1,13 @@
+@if (addTaskClicked) {
+<app-add-new-task (CloseAddNewTask)="onCancelTask()" (addTask)="addTaskInDummyTasks($event)"></app-add-new-task>
+}
+
+
 <section id="tasks">
     <header>
         <h2>{{detailsOfSelectedUser.name}}'s Tasks</h2>
         <menu>
-            <button>Add Task</button>
+            <button (click)="onAddTask()">Add Task</button>
         </menu>
     </header>
     <ul>

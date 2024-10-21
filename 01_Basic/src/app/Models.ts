@@ -15,5 +15,11 @@ export interface dummayTask {
     title: string;
     summary: string;
     dueDate: string;
-    active : string
+    active: string
+}
+
+export interface addTask {
+    Title: string;
+    Summary: string;
+    DueDate: string;
 }
