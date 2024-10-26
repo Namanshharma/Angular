@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { addTask } from '../../Models';
+import { CardComponent } from "../../shared/card/card.component";
 
 @Component({
   selector: 'app-add-new-task',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CardComponent],
   templateUrl: './add-new-task.component.html',
   styleUrl: './add-new-task.component.css'
 })
