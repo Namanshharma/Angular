@@ -35,6 +35,7 @@ export class AddNewTaskComponent {
   // }
 
   onSubmitDetails(): void {
+    debugger;
     this.tasksService.addTask({
       Title: this.enteredTitle,
       Summary: this.enteredSummary,
