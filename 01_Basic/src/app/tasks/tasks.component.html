@@ -1,7 +1,6 @@
 @if (addTaskClicked) {
-<app-add-new-task (CloseAddNewTask)="onCancelTask()" (addTask)="addTaskInDummyTasks($event)"></app-add-new-task>
+<app-add-new-task (close)="onCloseTask()" [userId]="detailsOfSelectedUser.id"></app-add-new-task>
 }
-
 
 <section id="tasks">
     <header>

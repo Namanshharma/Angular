@@ -3,6 +3,7 @@ import { addTask, dummayTask, obj } from '../Models';
 import { TaskComponent } from "./task/task.component";
 import { dummyTasks } from '../dummyTasks';
 import { AddNewTaskComponent } from "./add-new-task/add-new-task.component";
+import { TasksService } from './tasks.service';
 
 @Component({
   selector: 'app-tasks',
@@ -16,27 +17,31 @@ export class TasksComponent {
   dummyTasks: dummayTask[] = dummyTasks;
   addTaskClicked: boolean = false;
 
+  constructor(private taskService: TasksService) { };
+
+  // this method is used to get the tasks based on user ID
   onSelectionOfTask(selectedTask: dummayTask): void {
-    this.dummyTasks = this.dummyTasks.filter(x => x.id !== selectedTask.id);
+    // this.dummyTasks = this.dummyTasks.filter(x => x.id !== selectedTask.id);
+    this.taskService.getUserTasks(selectedTask.userId)
   }
 
   onAddTask(): void {
     this.addTaskClicked = true;
   }
 
-  onCancelTask(): void {
+  onCloseTask(): void {
     this.addTaskClicked = false;
   }
 
-  addTaskInDummyTasks(data: addTask): void {
-    this.dummyTasks.push({
-      active: "1",
-      dueDate: data.DueDate,
-      summary: data.Summary,
-      title: data.Title,
-      userId: this.detailsOfSelectedUser.id,
-      id: new Date().getTime().toString()
-    });
-    this.addTaskClicked = false;
-  }
+  // addTaskInDummyTasks(data: addTask): void {
+  //   this.dummyTasks.push({
+  //     active: "1",
+  //     dueDate: data.DueDate,
+  //     summary: data.Summary,
+  //     title: data.Title,
+  //     userId: this.detailsOfSelectedUser.id,
+  //     id: new Date().getTime().toString()
+  //   });
+  //   this.addTaskClicked = false;
+  // }
 }
