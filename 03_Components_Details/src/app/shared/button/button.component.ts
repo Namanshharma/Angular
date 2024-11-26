@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 // there are different types of selector are present ( attribute selector ( [appButton] ) , element selector (app-button or button) there are the example of element selector)
 // also we can combine both of these selectors as well.
@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './button.component.html',
-  styleUrl: './button.component.css'
+  styleUrl: './button.component.css',
 })
 export class ButtonComponent {
 
