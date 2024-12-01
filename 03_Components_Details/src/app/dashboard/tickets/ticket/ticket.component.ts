@@ -8,6 +8,7 @@ import { Ticket } from '../../../models/ticketModel';
   templateUrl: './ticket.component.html',
   styleUrl: './ticket.component.css'
 })
+
 export class TicketComponent {
   @Input({ required: true }) data !: Ticket;
   @Output() close: EventEmitter<any> = new EventEmitter<any>();
@@ -15,5 +16,9 @@ export class TicketComponent {
 
   onToggleDetails() {
     this.detailsCollapse != this.detailsCollapse;
+  }
+
+  onMarkAsCompleted() {
+    this.close.emit();
   }
 }
