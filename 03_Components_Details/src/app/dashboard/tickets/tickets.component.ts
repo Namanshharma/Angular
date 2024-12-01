@@ -22,4 +22,13 @@ export class TicketsComponent {
     };
     this.tickets.push(ticket);
   }
+
+  onClose(id: string): void {
+    this.tickets = this.tickets.map((ticket: Ticket) => {
+      if (ticket.id === id) {
+        return { ...ticket, status: 'closed' }
+      }
+      return ticket;
+    })
+  }
 }
