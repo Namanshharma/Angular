@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { ButtonComponent } from "../../../shared/button/button.component";
 import { ControlComponent } from "../../../shared/control/control.component";
 
@@ -12,7 +12,7 @@ import { ControlComponent } from "../../../shared/control/control.component";
 export class NewTicketComponent implements AfterViewInit, OnInit {
 
   @ViewChild('form') form?: ElementRef<HTMLFormElement>;    // by using this view Child decorator we can access the every variable in the template also we can use the component as well.
-
+  @Output() add: EventEmitter<{ title: string, text: string }> = new EventEmitter<{ title: string, text: string }>();
   enteredTitle !: string;
   enteredText !: string;
 
@@ -33,6 +33,7 @@ export class NewTicketComponent implements AfterViewInit, OnInit {
   onSubmit(title: string, text: string): void {
     this.enteredTitle = title;
     this.enteredText = text;
+    this.add.emit({ title: title, text: text });
     this.form?.nativeElement.reset();
   }
 }
