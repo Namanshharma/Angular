@@ -5,23 +5,24 @@ import { Permission } from './auth.model';
   providedIn: 'root'
 })
 export class AuthService {
-  activePermission = signal<Permission>('guest');
+  activePermission: Permission = "guest";
 
   authenticate(email: string, password: string) {
     console.log(email, password);
     if (email === 'admin@example.com' && password === 'admin') {
-      this.activePermission.set('admin');
+      this.activePermission = 'admin';
     } else if (email === 'user@example.com' && password === 'user') {
-      this.activePermission.set('user');
+      this.activePermission = 'user';
     } else {
-      this.activePermission.set('guest');
+      this.activePermission = 'guest';
     }
   }
 
   logout() {
-    this.activePermission.set('guest');
+    this.activePermission = 'guest';
   }
 }
+
 function signal<T>(arg0: string) {
   throw new Error('Function not implemented.');
 }
