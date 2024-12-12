@@ -3,7 +3,7 @@
 
   <hr />
 
-  <app-auth />
+  <app-auth (checkAdmin)="onCheckAdmin($event)" />
 
   @if (isAdmin) {
   <p>Only admins can see this paragraph</p>

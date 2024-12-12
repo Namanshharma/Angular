@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, EventEmitter, inject, Output, signal } from '@angular/core';
 import { AuthService } from './auth.service';
 import { FormsModule } from '@angular/forms';
 
@@ -12,10 +12,12 @@ import { FormsModule } from '@angular/forms';
 export class AuthComponent {
   email: string = "";
   password: string = "";
+  @Output() checkAdmin: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(private authService: AuthService) { }
 
   onSubmit() {
-    this.authService.authenticate(this.email, this.password);
+    const auth = this.authService.authenticate(this.email, this.password);
+    this.checkAdmin.emit(auth);
   }
 }

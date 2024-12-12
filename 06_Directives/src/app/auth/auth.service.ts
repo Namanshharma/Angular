@@ -7,8 +7,7 @@ import { Permission } from './auth.model';
 export class AuthService {
   activePermission: Permission = "guest";
 
-  authenticate(email: string, password: string) {
-    console.log(email, password);
+  authenticate(email: string, password: string): string {
     if (email === 'admin@example.com' && password === 'admin') {
       this.activePermission = 'admin';
     } else if (email === 'user@example.com' && password === 'user') {
@@ -16,6 +15,7 @@ export class AuthService {
     } else {
       this.activePermission = 'guest';
     }
+    return this.activePermission;
   }
 
   logout() {
