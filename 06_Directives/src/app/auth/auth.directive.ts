@@ -12,6 +12,6 @@ export class AuthDirective {
   @Input({ required: true }) userType!: Permission;
 
   constructor() {
-    
+    // in this constructor we need to check if our userType is matches with our Permission or not 
   }
 }
